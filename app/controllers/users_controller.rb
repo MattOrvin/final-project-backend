@@ -5,6 +5,11 @@ class UsersController < ApplicationController
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
 
+    def show
+        @user = User.find_by(id: params[:id])
+        render json: { user: @user }, status: :accepted
+    end
+
     def index
         @users = User.all
     end
@@ -17,6 +22,12 @@ class UsersController < ApplicationController
         else
           render json: { error: 'failed to create user' }, status: :not_acceptable
         end
+    end
+
+    def events
+        @user = User.find_by(id: params[:id])
+        @events = @user.events
+        render json: { events: @events }, status: :accepted
     end
 
     private

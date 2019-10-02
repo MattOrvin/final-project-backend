@@ -16,7 +16,6 @@ class AuthController < ApplicationController
     def current_user
         # @user = User.find_by(id: )
         # decode token and send it back
-        
     end
    
     private
