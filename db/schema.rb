@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 2019_09_26_155749) do
     t.string "eventbrite_id"
     t.string "eventbrite_venue_id"
     t.string "name"
+    t.string "logo"
+    t.string "start"
+    t.string "end"
+    t.string "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

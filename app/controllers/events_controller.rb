@@ -13,7 +13,14 @@ class EventsController < ApplicationController
 
     private
     def event_params
-        params.require(:event).permit(:name, :eventbrite_id, :eventbrite_venue_id)
+        params.require(:event).permit(
+            :name, 
+            :eventbrite_id, 
+            :eventbrite_venue_id,
+            :logo,
+            :start,
+            :end,
+            :summary)
     end
 
 end
