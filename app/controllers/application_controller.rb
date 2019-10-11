@@ -4,7 +4,6 @@ class ApplicationController < ActionController::API
     def encode_token(payload)
         # don't forget to hide your secret in an environment variable
         JWT.encode(payload, '17890714!$%')
-        # ^hide the string later
     end
      
     def auth_header
@@ -26,7 +25,6 @@ class ApplicationController < ActionController::API
     def current_user
         if decoded_token
             # decoded_token=> [{"user_id"=>2}, {"alg"=>"HS256"}]
-            # or nil if we can't decode the token
             user_id = decoded_token[0]['user_id']
             @user = User.find_by(id: user_id)
         end
